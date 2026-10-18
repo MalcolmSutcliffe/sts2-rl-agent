@@ -2106,3 +2106,10 @@ class RunManager:
             "is_over": rs.is_over,
             "player_won": rs.player_won,
         }
+
+    # ------------------------------------------------------------------
+    # Rng randomizer (for training)
+    # ------------------------------------------------------------------
+    def randomize_rng(self):
+        randomseed = self._rng.next_int(0, INT_MAX)
+        self._rng = Rng(randomseed)

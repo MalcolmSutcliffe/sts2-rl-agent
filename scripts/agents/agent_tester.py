@@ -28,8 +28,11 @@ class AgentTester:
             
             action = self._agent.get_action(mgr)
             mgr.take_action(action)
+            if mgr.get_combat_state():
+                print(mgr.get_combat_state().player.current_hp)
 
-        print(mgr.run_state.act_floor)
+        print(mgr.is_over)
+        print(mgr.run_state.player.current_hp)
         print("  YOU WIN!" if mgr.player_won else "  YOU DIED.")
         return 0
 
